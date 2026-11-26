@@ -4,8 +4,8 @@
 
 ## 1. Kết luận trước
 - Mã số: `2A202603026` · Task: `D13-2A202603026` · 10 frame: `s01f02`, `s01f48`, `s02f05`, `s02f25`, `s03f01`, `s03f31`, `s04f02`, `s04f32`, `s05f00`, `s05f38`.
-- Hệ điều hành: Windows · Trình duyệt: Cốc Cốc · Phiên bản CVAT: 2.8.3 · MSSV bạn ngồi cạnh: TODO(học viên).
-- Tổng cộng hiện có **93 cuboid** trên 10 frame; frame ít nhất là `s02f25` (**5 cuboid**) do đoạn đường thẳng có dải phân cách phần lớn các xe khác ở xa hoặc bị che khuất. Mình tin nhất ở **hướng yaw** (các xe cùng chiều quanh 270°, ngược chiều quanh 90°) và kích thước xe con ở gần; phần còn yếu nhất là **căn đáy chạm đường (`z_bottom`)** ở các xe xa/xe buýt lớn và giữ gọn chiều rộng hộp ở xa.
+- Hệ điều hành: Windows · Trình duyệt: Cốc Cốc · Phiên bản CVAT: 2.8.3 · MSSV bạn ngồi cạnh: không có (làm một mình).
+- Tổng cộng hiện có **92 cuboid** trên 10 frame; frame ít nhất là `s02f25` (**5 cuboid**) do đoạn đường thẳng có dải phân cách phần lớn các xe khác ở xa hoặc bị che khuất. Mình tin nhất ở **hướng yaw** (các xe cùng chiều quanh 270°, ngược chiều quanh 90°) và kích thước xe con ở gần; phần còn yếu nhất là **căn đáy chạm đường (`z_bottom`)** ở các xe xa/xe buýt lớn và giữ gọn chiều rộng hộp ở xa.
 - Cách dùng CVAT:
   - Đổi góc nhìn: kéo chuột trái để xoay khung 3D (xoay thẳng đứng để nhìn từ trên xuống), kéo chuột phải để dời, cuộn con lăn để phóng to/thu nhỏ, nháy đúp chỗ trống để về góc mặc định.
   - Vẽ và chỉnh cuboid: chọn công cụ vẽ cuboid → chọn label → **Shape** (không dùng Track), nháy đúp vào cụm điểm để đặt hộp; chỉnh tâm, dài, rộng, yaw ở **Top** và chỉnh độ cao/đáy ở **Side**, **Front**.
@@ -43,7 +43,7 @@ Tám frame lướt (đều xoay để phía trước ở cạnh trên):
 | (b) xe buýt hoặc xe tải | `s01f02`, 14 (CVAT #5; 30,4 m phía trước-trái, ngược chiều) | Truck | Có: yaw 88,8° | Có: z đáy −1,62 m (selfcheck không đo được ground_gap vì quanh xe ít điểm mặt đường) | Có, Top/Side/Front; đối chiếu cam01/cam06 | Dài 6,43 m, cao 2,89 m khớp xe tải hộp (5,5–9,0 / 2,40–3,50); **rộng 2,86 m vượt** 2,00–2,55 |
 | (c) người đi bộ hoặc xe hai bánh | `s01f02`, 13 (CVAT #6; 19,4 m bên phải, trên vạch qua đường) | Cyclist (xe máy) | Có: yaw 341,8°, theo hướng xe máy đang cắt ngang | Có: z đáy −1,71 m, ground_gap −0,04 m | Có, Top/Side/Front; đối chiếu cam07/cam08 | Dài 2,21 m, cao 1,60 m khớp xe máy có người; **rộng 1,23 m vượt** 0,70–0,95 (selfcheck cũng báo) |
 
-TODO(học viên): vòng hiệu chuẩn — cuboid của bạn lệch so với các bạn ở điểm nào, cả lớp chốt cách hiểu guideline nào.
+Vòng hiệu chuẩn: không có — buổi lab không thực hiện vòng hiệu chuẩn trên task chung, nên chưa có so sánh cuboid với các bạn khác; mình bám theo guideline và bảng 4.3.
 
 Vật **bỏ qua vì không đủ cơ sở**: `s03f31`, phía trước-trái >60 m, vài cụm chỉ dưới 10 điểm, không rõ xe hay cột — LOW_VISIBILITY; `s02f05`, phía trước-trái ~45–55 m sau dòng xe buýt, cụm điểm thấp bị che một nửa, không chắc là xe con hay xe ba bánh — UNCERTAIN_CLASS.
 
